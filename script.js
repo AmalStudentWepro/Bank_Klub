@@ -6,24 +6,23 @@ let account = 7777;
 function check() {
   let user = prompt('Введите ваше имя:');
   if (user !== name) {
-    alert('Нет такого пользователя');
+    alert('Пользователь не найден,дасвидули');
     return;
   }
   
-  let accountNumber = Number(prompt('Введите пароль:'));
+  let accountNumber = Number(prompt('Введите счёта?'));
   if (accountNumber !== account) {
-    alert('Неверный счет');
+    alert('Неверный счёт');
     return;
   }
   
-  let take = Number(prompt('Введите сумму для снятия:'));
+  let take = Number(prompt('Сколько обналичить?'));
   if (take > money) {
-    alert('Недостаточно денег');
+    alert('Недостаточно средвств');
     return;
   }
   
-  money -= take;
-  alert(`Ок! Осталось: $${money}`);
+  alert(`Всё Отлично!`);
 }
 
 check();
@@ -32,33 +31,25 @@ check();
 
 
 // клуб
-const list = [
-  { name: 'Alex', age: 25, money: 150 },
-  { name: 'Anna', age: 19, money: 200 },
-  { name: 'Alice', age: 30, money: 50 },
-  { name: 'John', age: 35, money: 120 },
-  { name: 'Alfred', age: 40, money: 110 },
-  { name: 'Bob', age: 22, money: 90 }
-];
+let dopuskCount = 0;
+let peopleCount = Number(prompt("Сколько человек хочет зайти в клуб?"));
 
-function dopusk() {
-  let nameStart = prompt('Введите первую букву имени (A-Z):').toUpperCase();
-  let minAge = Number(prompt('Введите минимальный возраст:'));
-  let maxAge = Number(prompt('Введите максимальный возраст:'));
-  let minMoney = Number(prompt('Введите минимальное количество денег:'));
-  
-  let allowedList = list.filter(p =>
-    p.name[0].toUpperCase() === nameStart &&
-    p.age >= minAge && p.age <= maxAge &&
-    p.money >= minMoney
-  );
-
-  if (allowedList.length === 0) {
-    alert('Нет подходящих людей!');
-    return;
+let name1 = prompt("Как вас зовут?");
+if (name1[0].toUpperCase() === 'A') {
+  let age = Number(prompt("Сколько вам лет?"));
+  if (age > 20 && age <= 40) {
+    let money = Number(prompt("Сколько у вас денег?"));
+    if (money > 100) {
+      dopuskCount++;
+      alert("Пропускаем!");
+    } else {
+      alert("Не пропускаем");
+    }
+  } else {
+    alert("Не пропускаем");
   }
-  
-  alert(`Можно впустить: ${allowedList.length}`);
+} else {
+  alert("Не пропускаем");
 }
 
-dopusk();
+
